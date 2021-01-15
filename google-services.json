@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "880657079842",
+    "project_id": "sana-a5fe4",
+    "storage_bucket": "sana-a5fe4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880657079842:android:e22faf6254ede8c8d4347b",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880657079842-buf0t4cmt2qiqhcqq636nbcss3qc4cbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVoq6-U0bJn8QMMbGBfxiuLg5AOB8Ackw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880657079842-buf0t4cmt2qiqhcqq636nbcss3qc4cbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

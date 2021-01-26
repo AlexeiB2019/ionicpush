@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -19,6 +20,8 @@ const { PushNotifications, Modals } = Plugins;
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+  private httpOptions = {}
+
   public appPages = [
     {
       title: 'Home',
@@ -35,9 +38,15 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private http: HttpClient
   ) {
     this.initializeApp();
+    this.httpOptions = {
+      headers: new HttpHeaders( { 'Content-Type': 'text/html',
+                                  'Access-Control-Allow-Origin': '*',
+                                  'Cache-Control': 'no-cache' } )
+    }
   }
 
   initializeApp() {
@@ -56,6 +65,14 @@ export class AppComponent implements OnInit {
     // On succcess, we should be able to receive notifications
     PushNotifications.addListener('registration',
       (token: PushNotificationToken) => {
+        let url = 'https://push.freshgrillfoods.com/serviceworker/register'
+
+        let request = "token=" + token.value
+        this.http.post(url, request, this.httpOptions)
+                 .subscribe( response => {
+                   alert(response)
+                 })
+
         alert('Push registration success, token: ' + token.value);
         console.log('Push registration success, token: ' + token.value);
       }
